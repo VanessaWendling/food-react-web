@@ -1,5 +1,10 @@
 import React from "react";
+import { Navbar } from "./components/Navbar";
 
 export function App() {
-  return <div><h1>oi</h1></div>;
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 }
