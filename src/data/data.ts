@@ -7,7 +7,7 @@ export interface IData {
 
 }
 
-enum Category{
+export enum Category{
     BURGER, PIZZA, SALAD, CHICKEN
 }
 

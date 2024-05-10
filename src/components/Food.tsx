@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import { IData, data } from "../data/data";
+import { Category, IData, data } from "../data/data";
 
 export const Food = () => {
   const [foods, setFoods] = useState<IData[]>(data);
+
+  const filterType = (category: Category) => {
+    setFoods(
+      data.filter((item) => {
+        return item.category === category;
+      })
+    );
+  };
+
+
   return (
     <div className="max-w-[1640px] m-auto px-4 py-12">
       <h1 className="text-orange-600 font-bold text-4xl text-center">
@@ -14,19 +24,34 @@ export const Food = () => {
         <div>
           <p className="font-bold text-gray-700">Filter Type</p>
           <div className="flex jus flex-wrap">
-            <button className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => setFoods(data)}
+              className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               All
             </button>
-            <button className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterType(Category.BURGER)}
+              className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               Burgers
             </button>
-            <button className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterType(Category.SALAD)}
+              className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               Pizza
             </button>
-            <button className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterType(Category.SALAD)}
+              className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               Salads
             </button>
-            <button className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterType(Category.CHICKEN)}
+              className="m-1 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               Chicken
             </button>
           </div>
@@ -64,8 +89,10 @@ export const Food = () => {
             />
             <div className="flex justify-between px-2 py-4">
               <p className="font-bold">{item.name}</p>
-              <p >
-                <span className="bg-orange-500 text-white p-1 rounded-full">{item.price}</span>
+              <p>
+                <span className="bg-orange-500 text-white p-1 rounded-full">
+                  {item.price}
+                </span>
               </p>
             </div>
           </div>
