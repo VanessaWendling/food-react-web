@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { HeadlineCard } from "./components/HeadlineCards";
+import { Food } from "./components/Food";
 
 export function App() {
   return (
@@ -9,6 +10,7 @@ export function App() {
       <Navbar />
       <Hero />
       <HeadlineCard />
+      <Food />
     </div>
   );
 }
